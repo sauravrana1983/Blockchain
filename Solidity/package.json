@@ -1,0 +1,22 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "Solidity Tutorial",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sauravrana1983/Blockchain.git"
+  },
+  "keywords": [
+    "Solidity"
+  ],
+  "author": "Saurav Rana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sauravrana1983/Blockchain/issues"
+  },
+  "homepage": "https://github.com/sauravrana1983/Blockchain#readme"
+}
