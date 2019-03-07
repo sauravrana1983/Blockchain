@@ -1,7 +1,6 @@
 import fs from 'fs';
 import Web3 from 'web3';
 import chalk from 'chalk';
-import {Accounts} from './node_modules/web3-eth-accounts';
 
 //setting up the connection
 const rpcURL = "http://127.0.0.1:8545"
@@ -28,7 +27,10 @@ web3.eth.getAccounts().then(function(data){
           }
  */
 const newAccount = web3.eth.accounts.create();
-console.log(newAccount);
+console.log(chalk.green('New Address Created: ' + newAccount.address));
+
+const privateKey = '0xbc47da09dbdbbd702284ca9d1c40307ccb89c087a3c701f258689e4f87e4fb50';
+const address = '0xCCf0461B9fae7090B9dEc544fBAe3D5ef1fF419d';
 
 
 
