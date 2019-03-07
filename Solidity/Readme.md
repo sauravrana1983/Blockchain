@@ -10,5 +10,5 @@ Command to run while in folder "solidity"
     solc --bin --abi --overwrite -o ./bin ./contract/DataStorage.sol
 
 This will create two files in the "bin" folder.
-Datastorage.abi --- [Application Binary Interface] 
+Datastorage.abi --- [Application Binary Interface]
 Datastorage.bin
