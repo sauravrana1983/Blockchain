@@ -97,7 +97,7 @@ async function setDataMethodofContract(value){
 /**
  *
  */
-async function setDataWithCheckMethodofContract(){
+async function setDataWithCheckMethodofContract(value){
   let parameters ={
     from: firstAccount
   }
@@ -139,6 +139,8 @@ function getContractObject(){
 // deployContract();
 readMethodOfContract();
 setDataMethodofContract(3000);
+readMethodOfContract();
+setDataWithCheckMethodofContract(999);
 readMethodOfContract();
 
 const privateKey = '0xbc47da09dbdbbd702284ca9d1c40307ccb89c087a3c701f258689e4f87e4fb50';
