@@ -7,26 +7,19 @@ import path from 'path';
 //setting up the connection
 const rpcURL = "http://127.0.0.1:8545"
 const web3 = new Web3(rpcURL);
+const firstAccount = '0xfD5bd9e6f31301bA31D9ddC2426E649b3edb7d94';
 
 async function getCurrentAccounts(){
   const accounts = await web3.eth.getAccounts();
   accounts.forEach(function(value, index){
      console.log(chalk.yellow('Account Number [' + index +  '] : ' + value ));
   })
-  // console.log(chalk.yellow(JSON.stringify(accounts)));
-  // console.log(chalk.yellow('First Account : ' + accounts[0]));
 }
 
 function createNewAccount(){
   const newAccount = web3.eth.accounts.create();
   console.log(chalk.green('New Address Created: ' + newAccount.address));
 }
-
-// async function unlockAccount(accountAddress, password){
-//   console.log(chalk.white("######  Unlocking the newly created account ########"));
-//   let status = await web3.eth.personal.unlockAccount(accountAddress, password, 600);
-//   return status;
-// }
 
 
 // Creating a new account node
@@ -71,6 +64,8 @@ async function deployContract(){
 
 
 async function readMethodOfContract(){
+
+  console.log(chalk.green('==> Demonstrating the get method invocation of smart contract'));
   let deployedContract = getContractObject();
 
   console.log(chalk.bgWhite(chalk.black('######## Details of Deployed Contract ###########')));
@@ -83,6 +78,33 @@ async function readMethodOfContract(){
 
   let output = await deployedContract.methods.getData().call();
   console.log(chalk.yellow('Invoking function getData() on contract : ' + output));
+}
+
+/**
+ *
+ * @param {*} value
+ */
+async function setDataMethodofContract(value){
+  let parameters ={
+    from: firstAccount
+  }
+  console.log(chalk.green('==> Demonstrating the get method invocation of smart contract'));
+  let deployedContract = getContractObject();
+  let returnValue = await deployedContract.methods.setData(value).send(parameters);
+  console.log(returnValue);
+}
+
+/**
+ *
+ */
+async function setDataWithCheckMethodofContract(){
+  let parameters ={
+    from: firstAccount
+  }
+  console.log(chalk.green('==> Demonstrating the get method invocation of smart contract'));
+  let deployedContract = getContractObject();
+  let returnValue = await deployedContract.methods.setDataWithCheck(value).send(parameters);
+  console.log(returnValue);
 }
 
 /**
@@ -110,11 +132,13 @@ function getContractObject(){
           }
  */
 
-// getCurrentAccounts();
+ // Execution of function Area
 
-
+ // getCurrentAccounts();
 // createNewAccountNode();
 // deployContract();
+readMethodOfContract();
+setDataMethodofContract(3000);
 readMethodOfContract();
 
 const privateKey = '0xbc47da09dbdbbd702284ca9d1c40307ccb89c087a3c701f258689e4f87e4fb50';
