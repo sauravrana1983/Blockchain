@@ -8,6 +8,7 @@ import path from 'path';
 const rpcURL = "http://127.0.0.1:8545"
 const web3 = new Web3(rpcURL);
 const firstAccount = '0xfD5bd9e6f31301bA31D9ddC2426E649b3edb7d94';
+const contractAddress = '0x89a8699D63466C7f9754fB8A00599E6c302AF43d';
 
 async function getCurrentAccounts(){
   const accounts = await web3.eth.getAccounts();
@@ -36,13 +37,14 @@ async function createNewAccountNode(){
 // How to deploy a contract programmatically
 async function deployContract(){
 
-  let abiPath = path.join(__dirname + '/bin/DataStorage.abi');
-  let binPath = path.join(__dirname + '/bin/DataStorage.bin');
+  let abiPath = path.join(__dirname + '/bin/DataStorageEvent.abi');
+  let binPath = path.join(__dirname + '/bin/DataStorageEvent.bin');
 
   console.log(chalk.green(abiPath));
   console.log(chalk.green(binPath));
 
   let abi = fs.readFileSync(abiPath);
+  // let bin = '0x' + fs.readFileSync(binPath);  updated version of ganache-cli does not need 'Ox' to be added to depict hexadecimal.
   let bin = fs.readFileSync(binPath);
 
 
@@ -111,12 +113,11 @@ async function setDataWithCheckMethodofContract(value){
  * Creating a utility function to get the contract object.
  */
 function getContractObject(){
-  let abiPath = path.join(__dirname + '/bin/DataStorage.abi');
+  let abiPath = path.join(__dirname + '/bin/DataStorageEvent.abi');
   let abi = fs.readFileSync(abiPath);
-  console.log(abi);
 
   // Replace the contract address with the contract you want to invoke.
-  let contractAddress = '0xaDB1E7fEA9a24DaEe48492C3523721Ea6b42F271';  // address of the deployed contract
+  // let contractAddress = '0xadb1e7fea9a24daee48492c3523721ea6b42f271';  // address of the deployed contract
   let options = {
     from: '0xfD5bd9e6f31301bA31D9ddC2426E649b3edb7d94',
     gasPrice: 1000,
@@ -138,6 +139,7 @@ function getContractObject(){
  // getCurrentAccounts();
 // createNewAccountNode();
 // deployContract();
+
 readMethodOfContract();
 setDataMethodofContract(3000);
 readMethodOfContract();
