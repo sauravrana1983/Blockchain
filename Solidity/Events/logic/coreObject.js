@@ -157,4 +157,6 @@ export {  setDataMethodofContract,
           readMethodOfContract,
           createNewAccount,
           createNewAccountNode,
-          deployContract};
+          deployContract,
+          getContractObject
+        };

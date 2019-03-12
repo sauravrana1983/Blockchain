@@ -1,7 +1,43 @@
-import Web3 from 'web3';
 import chalk from 'chalk';
-import fs from 'fs';
-import path from 'path';
-import {setDataMethodofContract} from './coreObject';
+import {getContractObject} from './coreObject';
 
-console.log(chalk.green('==> Subscribing to events on a contract'));
+const ALL_EVENTS = 'allEvents';
+
+function sanityTest(){
+  console.log(chalk.red('====> Adding the event subscriber function'))
+}
+
+async function getPastEventsForContract(){
+  let deployedContract = getContractObject();
+  let pastEvents = await deployedContract.getPastEvents(ALL_EVENTS, {
+     fromBlock: 0,
+     toBlock: 'latest'
+  });
+
+  pastEvents.forEach(function(value, index){
+    console.log(chalk.red('=========> Event [' + index + ']'));
+    console.log(chalk.green(JSON.stringify(value)));
+  });
+}
+
+async function getAllEvents(){
+  let deployedContract = getContractObject();
+  let allEvents = deployedContract.events.allEvents({
+    fromBlock: 0,
+    toBlock: 'latest'
+  });
+
+  if(allEvents.length > 0){
+    allEvents.forEach(function(value, index){
+        console.log(chalk.yellow(value));
+    });
+  }
+}
+
+export {
+  sanityTest,
+  getPastEventsForContract
+}
+
+
+
