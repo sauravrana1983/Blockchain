@@ -1,5 +1,13 @@
+# Solidity example of Library
 Solidity Contract has been written.
 
+## Step 1 Compile the contract
+Smart contract can be compiled in different ways
+    * Using solidity compile solc
+    * Using solc-js javascript implementation of the solidity compile
+
+### In order to install the solidity compile follow the instructio available here
+    [Solidity Compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 First Step is to compile the contract written in solidity.
 Mutiple ways to achieve the same this.
 Installing solidity compiler ---- solc command will become available online
