@@ -12,7 +12,7 @@ Smart contract can be compiled in different ways
 
 ### Prerequisite: Solidity is installed on the system.
     Command to run while in folder "solidity"
-    *solc --bin --abi --overwrite -o ./bin ./contract/**
+    - solc --bin --abi --overwrite -o ./bin ./contract/*
 
     * This will create two files in the "bin" folder.
         <contract_name>.abi --- [Application Binary Interface]
