@@ -6,7 +6,7 @@ contract DataStorageEvent{
     uint storageData;
     address public _owner;
     event StorageDataUpdate(address initiator, uint value);
-
+    
     constructor (uint data) public{
         storageData = data;
         _owner = msg.sender;

@@ -7,8 +7,8 @@ import path from 'path';
 //setting up the connection
 const rpcURL = "http://127.0.0.1:8545"
 const web3 = new Web3(rpcURL);
-const firstAccount = '0xfD5bd9e6f31301bA31D9ddC2426E649b3edb7d94';
-const contractAddress = '0x89a8699D63466C7f9754fB8A00599E6c302AF43d';
+const firstAccount = '0x96b6E861698DfBA5721a3Ccd9AfBCa808e360bf3';
+const contractAddress = '0x2a6168423F5c96CBD6b6BA424e4ac15071DbB55e';
 
 async function getCurrentAccounts(){
   const accounts = await web3.eth.getAccounts();
@@ -73,7 +73,7 @@ async function deployContract(){
     data: bin,
     arguments: [100]
   }).send({
-    from: '0xfD5bd9e6f31301bA31D9ddC2426E649b3edb7d94',
+    from: '0x96b6E861698DfBA5721a3Ccd9AfBCa808e360bf3',
     gasPrice: 1000,
     gas: 300000
   })
@@ -136,7 +136,7 @@ function getContractObject(){
   // Replace the contract address with the contract you want to invoke.
   // let contractAddress = '0xadb1e7fea9a24daee48492c3523721ea6b42f271';  // address of the deployed contract
   let options = {
-    from: '0xfD5bd9e6f31301bA31D9ddC2426E649b3edb7d94',
+    from: '0x96b6E861698DfBA5721a3Ccd9AfBCa808e360bf3',
     gasPrice: 1000,
     gas: 300000
   };
@@ -146,6 +146,12 @@ function getContractObject(){
 
 
 getBlockChainDetails();
+// getCurrentAccounts();
+// deployContract();
+
+//readMethodOfContract();
+// setDataMethodofContract(1000);
+// setDataWithCheckMethodofContract(2000);
 
 
 
